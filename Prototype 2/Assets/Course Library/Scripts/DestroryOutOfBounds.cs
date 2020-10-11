@@ -7,7 +7,7 @@ public class DestroryOutOfBounds : MonoBehaviour
 
     public float topBounds = 30f;
     public float lowerBounds = -15f;
-    // Update is called once per frame
+    // Hey, if they out of bounds, destroy!
     void Update()
     {
         if(transform.position.z > topBounds)
@@ -17,7 +17,7 @@ public class DestroryOutOfBounds : MonoBehaviour
 
         if(transform.position.z < lowerBounds)
         {
-            Debug.Log("Game Over!");
+            Debug.Log("Game Over!"); //If out of lower bounds, game over!
             Destroy(gameObject);
         }
     }

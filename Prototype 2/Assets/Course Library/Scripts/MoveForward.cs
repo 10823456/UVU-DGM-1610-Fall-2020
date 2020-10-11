@@ -4,14 +4,9 @@ using UnityEngine;
 
 public class MoveForward : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
+ 
     public float speed = 10f;
-    void Update()
+    void Update() //Move forward at constant rate
     {
         transform.Translate(Vector3.forward * Time.deltaTime * speed);
     }
