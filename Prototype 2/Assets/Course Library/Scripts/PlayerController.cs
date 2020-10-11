@@ -12,20 +12,25 @@ public class PlayerController : MonoBehaviour
 
     public float speed = 10f;
     private float horizontalInput;
-
+    public GameObject projectilePrefab;
 
     void Update()
     {
         
         horizontalInput = Input.GetAxis("Horizontal");
         transform.Translate(Vector3.right * Time.deltaTime * speed * horizontalInput);
-        if (transform.position.x < -18)
+        if (transform.position.x < -20)
         {
-            transform.position = new Vector3(-18, transform.position.y, transform.position.z);
+            transform.position = new Vector3(-20, transform.position.y, transform.position.z);
         }
-        if (transform.position.x > 18)
+        if (transform.position.x > 20)
         {
-            transform.position = new Vector3(18, transform.position.y, transform.position.z);
+            transform.position = new Vector3(20, transform.position.y, transform.position.z);
+        }
+
+        if(Input.GetKeyUp(KeyCode.Space))
+        {
+            Instantiate(projectilePrefab, transform.position, projectilePrefab.transform.rotation);
         }
 
     }
