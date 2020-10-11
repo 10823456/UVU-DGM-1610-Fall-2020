@@ -12,6 +12,7 @@ public class SpawnManagerX : MonoBehaviour
     
     private float startDelay = 1.0f;
     private float spawnInterval = 1.0f;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -24,10 +25,12 @@ public class SpawnManagerX : MonoBehaviour
     {
         // Generate random ball index and random spawn position
         Vector3 spawnPos = new Vector3(Random.Range(spawnLimitXLeft, spawnLimitXRight), spawnPosY, 0);
+        // Debug.Log(spawnInterval);
+        int ballIndex = Random.Range(0, ballPrefabs.Length);
+        //Random.Range is exclusive. (3, 5) will return only 3 or 4, not 5. The bonus was to spawn the ball between 3 and 5. 
+        spawnInterval = Random.Range(3, 6); 
 
         // instantiate ball at random spawn location
-        int ballIndex = Random.Range(0, ballPrefabs.Length);
-        spawnInterval = Random.Range(3, 5);
         Instantiate(ballPrefabs[ballIndex], spawnPos, ballPrefabs[ballIndex].transform.rotation);
     }
 
